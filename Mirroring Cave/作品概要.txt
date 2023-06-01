@@ -1,0 +1,113 @@
+作品概要
+
+・ゲームの説明
+
+自分と同じ動きをするロボットをうまく使いながらギミックを解いていくゲームです。
+
+
+プラットフォーム　PC
+ライブラリ　　　　DXライブラリ
+使用言語　　　　　C＋＋
+制作人数　　　　　１人
+制作期間　　　　　2021年9月～2022年2月		　
+ジャンル　　　　　パズルゲーム
+
+・動作確認したOS名とそのバージョン
+　windows 10 Education 24H2 64bit
+　
+・開発に使用した開発環境のバージョン
+　Visual Studio Professional 2022 (64bit) - LTSC 17.0
+
+・開発に使用したライブラリ、ミドルウェアとそのバージョン
+ Dxライブラリ 3.23
+
+・クラス構成
+classーーーcommonーDetail
+　　　　｜
+　　　　｜ーinput
+　　　　｜　　
+　　　　｜ーobj
+　　　　｜
+　　　　｜　
+　　　　｜ーscene　　
+　　　　｜
+　　　　｜－Transition
+　　
+tmx
+　　　　　
+　　　　　　　
+　　　　　　　
+・他人の作った関数を使用しているところ
+　〇ClassーObjーAnimMng    ・・・プレイヤーの判定と移動
+　〇Classーcommon    　　　・・・Vector2以外すべて
+　〇_debug       　　　　　・・・ファイルの中すべて
+　〇Classーinput    　　　 ・・・すべて
+それ以外は自分で実装
+　使用したURLや書籍、ライブラリ
+　・ライブラリ
+　　DXライブラリ
+
+
+・アピールポイント（作品のゲーム部分）
+　同じ動きをするロボットをうまく誘導してパズルを解いた時の達成感
+　たくさんのギミック(ボタン/扉/水たまり/穴/松明など)
+
+・アピールポイント（プログラム部分）
+	・位置補正
+	　　補正を何も書けないとマスとマスの間に入る
+	　　のが難しく操作性がとても悪くなっていたので
+	　　移動方向が変わった時にマスごとに位置補
+	　　正をかけて操作がやりやすようにしました。
+
+		classーObjーCheckmove.h  28行　CorrectPosx()
+		//位置補正x方向
+		struct CorrectPosx
+		{
+			bool operator()(Vector2Dbl& pos_, Vector2Dbl& size_)
+		{
+				int posx = static_cast <int>(pos_.x);
+				int sizex = static_cast <int>(size_.x);
+				if ((posx % sizex) == 0)
+				{
+		
+	　　　　～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+	　　　　～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+					return false;
+				}
+				pos_.x = ((posx + sizex / 2) / sizex) * sizex;
+				return true;
+			}
+		};
+
+	・Tmxからインスタンスの生成
+	　　tmxを読み込み、オブジェクト回数分回して、
+	　　文字列が同じだったら、そのオブジェクトを生
+	　　成するようにしてtmxを書き換えるだけで変
+	　　わるようにしています。
+
+		objctVec_ = objFileName.vecData();
+		objctDoc.parse<0>(objctVec_.data());
+		objctNode_ = objctDoc.first_node("objctList");
+
+		std::string TipsValue = objctNode_->first_attribute("TipsValue")->value();
+
+		auto node = objctNode_->first_node("objList");
+		/*Tips_ = TipsValue;*/
+		for (auto ListNode = node->first_node("List"); ListNode != nullptr; ListNode = ListNode->next_sibling())
+		{
+			std::string listname = ListNode->first_attribute("name")->value();
+			auto objx = atof(ListNode->first_attribute("x")->value());
+			auto objy = atof(ListNode->first_attribute("y")->value());
+			std::string dieValue = ListNode->first_attribute("die")->value();
+		～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～	
+		～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+			if (listname == "Player")
+			{
+			
+				objList_.emplace_back(std::make_unique<Player>(objx, objy, die, HintList_));
+			}
+		｝
+
+
+
+
