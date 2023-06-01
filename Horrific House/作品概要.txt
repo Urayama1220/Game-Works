@@ -1,0 +1,195 @@
+作品概要
+
+・ゲームの説明
+
+徘徊している幽霊に捕まらないようにカメラをうまく使いながら屋敷から脱出するゲームです。
+カメラを向けている感じを出すために実際の携帯のカメラを使ってARでプレイすることが出来ます。
+
+
+プラットフォーム　PC
+ライブラリ　　　　DXライブラリ
+使用言語　　　　　C＋＋　/　HLSL
+制作人数　　　　　５人
+制作期間　　　　　２０２２年９月～２０２３年２月		　
+ジャンル　　　　　３D ARホラーゲーム
+
+
+・動作確認したOS名とそのバージョン
+　windows 10 Education 24H2 64bit
+　
+・開発に使用した開発環境のバージョン
+　Visual Studio Professional 2022 (64bit) - LTSC 17.0
+　
+　・開発に使用したライブラリ、ミドルウェアとそのバージョン
+ Dxライブラリ 3.23
+　
+・クラス構成
+classーーーcommonーmanager
+　　｜
+　　｜ーhlslーーpsー3D
+　　｜　｜
+　　｜　｜ーvs
+　　｜　｜
+　　｜　｜ーinput
+　　｜　｜　　
+　　｜　｜ーobject
+　　｜　｜
+　　｜　｜ーenemy
+　　｜　｜
+　　｜　｜ーgimmick
+　　｜　｜
+　　｜　｜ーitem
+　　｜　｜
+　　｜　｜ーmarker
+　　｜　｜　｜
+　　｜　｜ーplayer
+　　｜　｜　
+　　｜　｜ーscene　　
+　　｜　｜　　｜
+　　｜　　　　｜ーeffect
+　　｜　　　　｜
+　　｜　　　　｜ーsceneExpansionーbuffer
+　　｜　　　　　　　　　｜
+　　｜　　　　　　　　　｜ーui　　
+　　｜
+　　｜ーtmx
+　　｜
+　　｜ーTransition
+　　　　　
+　　　　　　　　
+　　　　　　　　
+・担当箇所　　　
+　　
+　全ての箇所担当
+　　〇classーcommonーmanagerーCBufferMng	・・・シェーダーの定数バッファを管理するクラス
+　　〇classーcommonーLight	　　　		・・・ライトの構造体
+　　〇classーcommonーOriginalShader	　　　　・・・シェーダーで描画するする際に使用するクラス
+
+　　〇classーobjectーplayerーMinCameraUI	　　　　・・・ミニカメラのUI
+　　〇classーobjectーplayer	　　　　・・・プレイヤーとマップの当たり判定部分
+
+    〇classーsceneーsceneExpansionーbufferーCBuffer	　　　　・・・バッファの基底クラス
+　　〇classーsceneーsceneExpansionーbufferーGameCBuffer	　　　　・・・ゲーム定数バッファ
+　　〇classーsceneーsceneExpansionーbufferーGameOverCBuffer	・・・ゲームオーバー定数バッファ
+　　〇classーsceneーsceneExpansionーbufferーTitleCBuffer	・・・ゲームタイトル定数バッファ
+
+　　〇classーsceneーsceneExpansionーUIーConnectedUI	・・・接続UI
+　　〇classーsceneーsceneExpansionーUIーExitUI	　　　　・・・終了UI
+　　〇classーsceneーsceneExpansionーUIーLoadUI	　　　　・・・ロードUI
+　　〇classーsceneーsceneExpansionーUIーOptionUI	・・・オプションUI
+　　〇classーsceneーsceneExpansionーUIーPreTitleUI	・・・プレタイトルUI
+　　〇classーsceneーsceneExpansionーUIーSelectUI	・・・セレクトUI
+　　〇classーsceneーsceneExpansionーUIーTitleUI	　　　　・・・タイトルUI
+　　〇classーsceneーsceneExpansionーUIーUI	　　　　・・・UIの基底クラス
+
+　　〇classーsceneーConnectedScene	・・・接続シーン
+　　〇classーsceneーExitScene	　　　　・・・終了シーン
+　　〇classーsceneーLoadScene	　　　　・・・ロードシーン
+　　〇classーsceneーOptionScene	　　　　・・・オプションシーン
+　　〇classーsceneーPreTitleScene   　　・・・プレタイトルシーン
+　　〇classーsceneーSelectScene	　　　　・・・セレクトシーン
+　　〇classーsceneーTitleScene	　　　　・・・タイトルシーン
+　　
+　少し担当した箇所　　　　　
+　　〇classーsceneーBaseScene　 ・・・シーンの基底クラス
+　　　非同期読み込み実装（Loading()、AfrerLoading()）
+　　　
+　参考にして完成させた箇所　　　　　　
+ 　 〇classーcommonーSocketServer	　　　　・・・ARを使用するために携帯と通信するためのクラス
+      通信の基本設定は調べて作成、
+　　　TCP/IPをUDPに同期を非同期の変更とデーターの格納を実装
+    〇classーhlslーpsー3DーGameModel_ps	　　　　・・・シェーダーを使った描画（ライト、フォグ）
+　　〇classーhlslーpsー3DーTitleModel_ps	・・・シェーダーを使った描画（ライト）
+       
+　それ以外はWebや授業で配布されたプログラムかほかの人の担当箇所
+
+　使用したURLや書籍、ライブラリ
+　・ライブラリ
+　　Dxライブラリ
+　・書籍
+　　HLSL シェーダーの魔導書 シェーディングの基礎からレイトレーシングまで
+　・URL
+　　・ソケット通信に関するURL
+　　　UDP　https://www.infraexpert.com/study/tcpip12.html
+　　　C＋＋とC＃のプロセス間通信をソケット通信で行ってみる　https://logicalbeat.jp/blog/4827/
+　　　Socket通信 その2 [PC⇔Android間の通信] Wi-Fi経由　　　https://office-fun.com/techmemo-pc-android-comu-vol3-pcandroid-comu-test-wifi/
+　　　C# で Socket 通信 を行う 方法 （UDP 通信 with UdpClient）https://garafu.blogspot.com/2015/08/udpclient.html
+　　　C++ソケットプログラミング第一回　http://k3tec.net/neko_wiki/index.php?C%2FC%2B%2B%A5%BD%A5%B1%A5%C3%A5%C8%A5%D7%A5%ED%A5%B0%A5%E9%A5%DF%A5%F3%A5%B0%C2%E8%B0%EC%B2%F3
+　　　ノンブロッキングソケット：Geekなページ　https://www.geekpage.jp/programming/winsock/nonblocking.php
+　　　WinSockエラー　http://hosumi.com/memo/winsock.html
+　　・シェーダー
+　　　シェーダーモデル5.0　https://dxlib.xsrv.jp/cgi/patiobbs/patio.cgi?mode=view&no=4202
+　
+・アピールポイント（作品のゲーム部分）
+　ホラーゲームの雰囲気（ゲームの導入/BGM/逃げているときのエフェクト/フォグ）
+　雰囲気を壊さないUI
+　徘徊している敵から隠れながら移動する緊張感と突然目の前から追いかけてきたときの恐怖感
+　プレイヤーが驚く演出（ジークボックス/ピアノ/強制発見）
+　死んだときの演出
+　実際にカメラを使ったAR
+
+・アピールポイント（プログラム部分）
+　・通信とデーターの受け取り
+　　　TCP/IP通信では速度が足りず、同期だと止まってしまったため、
+　　　今回は非同期のUDP通信を行いました。
+　　　データの受け取りに関しては、数字の文字を使用して
+　　　文字と文字の間に「,」を入れて順番で何の情報が来ているか
+　　　確認して「,」までの数字を取り出してそれを変数に代入しています。
+
+　　　例えば、「0,120,0,1,0,0」のようにもらってきてたら、
+　　　x=0 y =120　のように「,」区切りで代入していきます。
+
+　　　
+　　　classーcommonーSocketServer　75行　Receive()
+
+　　　　　//データの受け取り
+　　　data = recv(sock, buf, sizeof(buf), 0);
+　　　～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+　　　～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+　　　std::stringstream dataStream;
+　　　dataStream << buf;
+　　　
+　　　//データの格納
+　　　TRACE(" x : ");
+　　　SplitStorage(cameraValue_.first, dataStream);
+　　　～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+　　　～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+　　　void SocketServer::SplitStorage(int& value, std::stringstream& dataStream)
+　　　{
+　　　    std::string numstr;
+　　　　　std::getline(dataStream, numstr, ',');
+　　　　　value = atoi(numstr.c_str());
+　　　　　TRACE(" data %d ", value);
+　　　}
+
+　・スポットライト
+　　　DXライブラリにスポットライトの関数があり、
+　　　それで実装していました。ですが、頂点からライトを計算しているようで
+　　　思った通りのものが出来なかったためShaderでスポットライトを作成しました。
+
+
+　　　classーhlslーpsー3DーGameModel_ps　165行　main(PS_INPUT input)
+
+　　　　// 距離による影響率を計算する
+　　　　// スポットライトとの距離を計算する
+　　　　float3 distance = length(input.pos - spotLights[spLigNo].position);
+
+　　　　// 影響率は距離に比例して小さくなっていく
+　　　　float affect = 1.0f - 1.0f / spotLights[spLigNo].range * distance;
+　　　  ～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+　　　　～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+　　　　// 入射光と射出方向の角度を求める
+　　　　// dot()を利用して内積を求める
+　　　　float angle = dot(ligDir[spLigNo], spotLights[spLigNo].Direction);
+
+　　　　// dot()で求めた値をacos()に渡して角度を求める
+　　　　angle = abs(acos(angle));
+
+
+
+
+
+
+
+
+
