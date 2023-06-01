@@ -59,6 +59,7 @@ private:
 	//プレイヤーの更新
 	uniqueScene UpdatePlayer(uniqueScene& ownScene);
 
+	//担当.三ヶ島滉季(開始)---------------------------------------------------------------------------
 	//オブジェクト生成
 	void CreateObject(void);
 	void CreateGimmickObject(void);	//ギミック
@@ -66,6 +67,7 @@ private:
 	void CreateCoinObject(void);	//コイン
 	void CreateGoalObject(void);	//ゴール
 	void CreatePlayerObject(void);	//プレイヤー
+	//担当.三ヶ島滉季(終了)---------------------------------------------------------------------------
 
 	//範囲内チェック(範囲内：true/範囲外：false)
 	bool CheckWithinRange(Vector3 objpos, Vector3 playerpos);

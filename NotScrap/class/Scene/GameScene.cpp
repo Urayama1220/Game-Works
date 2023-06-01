@@ -412,6 +412,8 @@ void GameScene::CreateObject(void)
 
 void GameScene::CreateGimmickObject(void)
 {
+	//担当.三ヶ島滉季(開始)---------------------------------------------------------------------------
+
 	int i = 0;
 	//ドア
 	for (auto& Door : lpStage.GetDoorList())
@@ -472,6 +474,7 @@ void GameScene::CreateGimmickObject(void)
 		gimmickList_.emplace_back(std::make_unique<MidPoint>(mid.pos_, i - 1));
 		i++;
 	}
+	//担当.三ヶ島滉季(終了)---------------------------------------------------------------------------
 
 	//チュートリアル
 	if (lpStage.GetStage() == STAGE_NAME::STAGE_1)
@@ -509,7 +512,7 @@ void GameScene::CreateGimmickObject(void)
 			enemyList_, TutorialType::TutorialMagBox));
 
 	}
-
+	//担当.三ヶ島滉季(開始)---------------------------------------------------------------------------
 	i = 0;
 	//煙エフェクト
 	for (auto& smoke : lpStage.GetSmokeList())
@@ -548,11 +551,13 @@ void GameScene::CreateGimmickObject(void)
 		gimmickList_.emplace_back(std::make_unique<WarningSign>(sign.pos_, i - 1));
 		i++;
 	}
+	//担当.三ヶ島滉季(終了)---------------------------------------------------------------------------
 
 }
 
 void GameScene::CreateEneymyObject(void)
 {
+	//担当.三ヶ島滉季(開始)---------------------------------------------------------------------------
 	int i = 0;
 	//敵
 	for (auto& enemy : lpStage.GetEnemyList())
@@ -577,10 +582,12 @@ void GameScene::CreateEneymyObject(void)
 		enemyList_.emplace_back(std::make_shared<EnemyShoot>(EnemyType::SHOOT, enemyShoot.pos_, i - 1));
 		i++;
 	}
+	//担当.三ヶ島滉季(終了)---------------------------------------------------------------------------
 }
 
 void GameScene::CreateCoinObject(void)
 {
+	//担当.三ヶ島滉季(開始)---------------------------------------------------------------------------
 	int i = 0;
 	//コイン
 	for (auto& coin : lpStage.GetCoinList())
@@ -593,6 +600,7 @@ void GameScene::CreateCoinObject(void)
 		coinList_.emplace_back(std::make_unique<Coin>(Scene::Game, coin.pos_, i - 1));
 		i++;
 	}
+	//担当.三ヶ島滉季(終了)---------------------------------------------------------------------------
 }
 
 void GameScene::CreateGoalObject(void)
