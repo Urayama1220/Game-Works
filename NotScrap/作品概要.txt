@@ -1,0 +1,126 @@
+作品概要
+
+・ゲームの説明
+
+方向性の持った磁石を使い引き寄せや反発を使いクリアを目指すアクションゲームです。
+
+プラットフォーム　PC
+ライブラリ　　　　DXライブラリ
+物理エンジン　　　Bullet3
+使用言語　　　　　C＋＋　/　HLSL
+制作人数　　　　　４人
+制作期間　　　　　２０２２年４月～２０２２年８月		　
+ジャンル　　　　　３Dパズルアクション
+
+・動作確認したOS名とそのバージョン
+　windows 10 Education 24H2 64bit
+　
+・開発に使用した開発環境のバージョン
+　Visual Studio Professional 2022 (64bit) - LTSC 17.0
+
+・開発に使用したライブラリ、ミドルウェアとそのバージョン
+ Dxライブラリ 3.23
+
+・クラス構成
+classーーーCommon
+　　　　｜
+　　　　｜ーInput
+　　　　｜　　
+　　　　｜ーObj
+　　　　｜　｜
+　　　　｜　｜ーGimmick
+　　　　｜　｜
+　　　　｜　｜ーUnit
+　　　　｜　　　　｜
+　　　　｜　　　　｜ーItem
+　　　　｜
+　　　　｜　
+　　　　｜ーScene　　
+　　　　｜　　
+　　　　｜ーTransition　　　
+　　　　｜　　　　
+　　　　｜ーUI
+　　　　｜
+　　　　｜ーCamera
+　　　　　
+　　　　　　　　
+　　　　　　　　
+・担当箇所　　　
+　　
+　全ての箇所担当
+　　〇ClassーObjーUnitーPlayer	　　　・・・プレイヤーの挙動や判定
+　　〇ClassーObjーGimmickーAccessory    ・・・磁力に反応して転がるポンべ
+　　〇ClassーObjーGimmickーMagBox       ・・・磁石に反応して動く箱
+　　〇ClassーObjーGimmickーScrap        ・・・タイトルで振ってくるプレイヤ
+　　〇ClassーObjーGimmickーSmokeAcs     ・・・エフェクシアで煙のエフェクト表示
+　　〇ClassーObjーGimmickーTutorial     ・・・チュートリアル（押すボタンと扉）
+　　〇ClassーObjーGimmickーTutorialMovie・・・チュートリアル（動画）
+　　〇ClassーSceneーTitleScene	　　　・・・タイトルシーン
+　　〇ClassーCommonーMovieMng	　　　・・・動画管理
+
+　
+　少し担当した箇所
+　　〇ClassーObjーStage	　　・・・ステージのモデルの配置と当たり判定の作成
+　　　Bullet3に関する処理全ての箇所担当　
+　　〇ClassーObjーCheck Hit　 ・・・当たり判定用クラス
+　　　モデル同士の当たり判定の箇所全て担当　　　　　　　　
+　　〇ClassーObjーUnitーEnemy　 ・・・Bullet3の箇所全て担当
+　　　歩くいてくる敵の処理　　　　　　　　　　
+
+　参考にして完成させた箇所
+　　Bullet3を使った関することすべて
+　　
+　それ以外はWebや授業で配布されたプログラムかほかの人の担当箇所
+　
+　使用したURLや書籍、ライブラリ
+　・ライブラリ
+　　DXライブラリ
+　　Effekseer
+　・URL
+　　Bullet Physicsの導入- Qiita https://qiita.com/stir001/items/73aeabdbee744f38ea3c
+　　Bullet Collision Detection & Physics Library　https://pybullet.org/Bullet/BulletFull/
+　　情報メディア実験 物理エンジンを使ったアプリケーション開発　https://www.slis.tsukuba.ac.jp/~fujisawa.makoto.fu/lecture/iml/index.html
+　　ペチコートさんの大航海時代日記　http://dolpetticoat.blog.fc2.com/blog-entry-91.html
+
+・アピールポイント（作品のゲーム部分）
+　弱い磁石を使った時の磁石感と強い磁石を使った時の爽快感
+　下向きに磁石を使って浮いた場合の磁石に浮いている感じ
+　磁界を連想させるエフェクト
+　磁石を使ったギミック
+　
+・アピールポイント（プログラム部分）
+　・軸の固定
+　　　ゲームの仕様上Z方向の移動をしてはいけないのでBullet３
+　　　をそのまま使うと真横に飛んでも壁に当たった時の反動で少し
+　　　のずれが発生してプレイヤーの動きがおかしくなっていました、
+　　　なのでset Linear Factor()でZ方向に行かないように固定して
+　　　います。回転も同じくset Angular Factor()で倒れないよう
+　　　にしています。
+　　　
+　　　ClassーObjーStage　763行　CreateRigidBody()
+
+　　　　　//移動可能な方向の設定
+　　　　　body->setLinearFactor(LinearVec);
+　　　　　//回転可能な方向の設定
+　　　　　body->setAngularFactor(AngularVec);
+
+　・衝突形状の作成
+　　　Bullet3を使用した際に元々使っていた当たり判定では、
+　　　Bullet3の判定に関与することが出来ず当たっていても
+　　　モデルは床や壁を貫通してしまいました。
+　　　なのでBullet3の方で当たり判定を作って当たり判定は
+　　　Bullet3で行うことにしました。
+
+　　　ClassーObjーStage　512行　SetRigidBodies()
+
+        　// 参照用メッシュの構築
+　　　MV1SetupReferenceMesh(collisionHandle_, -1, TRUE);
+　　　// 参照用メッシュの取得
+　　　MV1_REF_POLYGONLIST Mesh = MV1GetReferenceMesh(collisionHandle_, -1, TRUE);
+　　　//地面のメッシュからトライアングルリスト作成
+　　　btTriangleMesh* VartexGround = new btTriangleMesh();
+　　　  ～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+　　　～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+　　　// 地面の衝突形状の作成
+　　　btBvhTriangleMeshShape* ground_shape = new btBvhTriangleMeshShape(VartexGround, true, true);
+　　　btstageBody_ = CreateRigidBody(0.0, trans, ground_shape, 0);
