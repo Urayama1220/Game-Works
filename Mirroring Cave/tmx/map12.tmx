@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="22" height="15" tilewidth="48" tileheight="48" infinite="0" nextlayerid="3" nextobjectid="57">
+ <tileset firstgid="1" source="Box2.tsx"/>
+ <layer id="1" name="block" width="22" height="15">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,35,35,35,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,35,34,9,9,9,33,35,35,35,35,35,35,0,0,0,0,0,0,
+0,0,0,34,9,9,31,32,32,9,9,9,9,9,9,9,25,0,0,0,0,0,
+0,0,26,9,31,32,32,32,32,32,32,32,32,32,32,32,25,0,0,0,0,0,
+0,0,26,40,32,32,32,32,32,32,32,32,32,19,31,17,0,0,0,0,0,0,
+0,0,26,40,32,32,21,36,36,36,36,36,36,35,36,0,0,0,0,0,0,0,
+0,0,26,31,32,32,9,9,9,9,9,9,9,9,9,25,0,0,0,0,0,0,
+0,0,0,18,40,32,32,32,32,32,32,32,32,32,32,25,0,0,0,0,0,0,
+0,0,0,26,31,32,32,32,32,32,32,32,32,32,32,33,35,35,0,0,0,0,
+0,0,0,0,18,31,32,32,17,27,27,27,27,18,40,9,9,9,33,0,0,0,
+0,0,0,0,0,18,40,21,35,35,0,0,0,26,40,32,32,32,9,25,0,0,
+0,0,0,0,0,26,40,9,9,9,25,0,0,26,31,32,32,32,32,25,0,0,
+0,0,0,0,0,26,31,32,32,32,25,0,0,0,27,18,31,32,17,0,0,0,
+0,0,0,0,0,0,27,27,27,27,0,0,0,0,0,0,27,27,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="2" name="col">
+  <object id="33" x="96" y="192" width="48" height="192"/>
+  <object id="34" x="288" y="288" width="432" height="96"/>
+  <object id="35" x="144" y="384" width="48" height="96"/>
+  <object id="36" x="192" y="480" width="48" height="96"/>
+  <object id="37" x="240" y="528" width="48" height="144"/>
+  <object id="38" x="288" y="672" width="192" height="48"/>
+  <object id="39" x="480" y="576" width="48" height="96"/>
+  <object id="40" x="336" y="528" width="336" height="96"/>
+  <object id="41" x="384" y="480" width="288" height="48"/>
+  <object id="42" x="672" y="624" width="96" height="48"/>
+  <object id="43" x="768" y="672" width="96" height="48"/>
+  <object id="44" x="864" y="624" width="48" height="48"/>
+  <object id="45" x="912" y="528" width="48" height="96"/>
+  <object id="46" x="864" y="480" width="48" height="96"/>
+  <object id="47" x="720" y="432" width="144" height="96"/>
+  <object id="48" x="720" y="384" width="48" height="48"/>
+  <object id="49" x="720" y="240" width="48" height="48"/>
+  <object id="50" x="768" y="144" width="48" height="96"/>
+  <object id="51" x="432" y="96" width="336" height="96"/>
+  <object id="53" x="288" y="96" width="144" height="48"/>
+  <object id="54" x="192" y="144" width="96" height="48"/>
+  <object id="55" x="144" y="192" width="48" height="48"/>
+  <object id="56" x="624" y="240" width="48" height="48"/>
+ </objectgroup>
+</map>

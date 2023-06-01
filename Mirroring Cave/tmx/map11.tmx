@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="22" height="15" tilewidth="48" tileheight="48" infinite="0" nextlayerid="4" nextobjectid="211">
+ <tileset firstgid="1" source="Box2.tsx"/>
+ <layer id="1" name="block" width="22" height="15">
+  <data encoding="csv">
+0,0,35,35,35,35,35,0,0,0,0,0,35,0,0,0,0,0,35,0,0,0,
+0,26,9,9,9,9,9,33,0,0,35,34,9,25,0,0,0,26,9,25,0,0,
+0,26,40,32,32,32,32,9,25,26,9,9,32,33,35,0,0,26,40,25,0,0,
+0,26,40,32,32,32,32,32,25,26,40,32,32,9,9,25,0,34,40,25,0,0,
+0,26,40,32,21,22,40,21,35,26,31,32,32,32,32,25,26,9,31,25,0,0,
+0,26,31,19,9,9,31,9,9,33,22,31,32,32,17,35,34,40,32,25,0,0,
+0,0,27,26,40,32,32,32,32,9,9,19,40,21,34,9,9,31,32,25,0,0,
+0,0,35,34,40,21,18,31,32,32,32,20,40,9,9,31,32,32,32,25,0,0,
+0,26,9,9,31,9,33,36,22,40,32,9,31,32,32,32,32,32,17,0,0,0,
+0,26,31,32,32,32,9,9,9,31,32,32,32,19,40,44,40,21,35,0,0,0,
+0,0,18,31,32,44,40,32,32,32,17,27,27,34,40,9,31,9,9,25,0,0,
+0,0,0,18,40,9,31,32,32,17,0,0,26,9,31,32,32,32,32,25,0,0,
+0,0,0,26,31,32,32,32,17,0,0,0,26,31,32,17,27,18,31,25,0,0,
+0,0,0,0,27,27,27,27,0,0,0,0,0,27,27,0,0,0,27,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="3" name="col">
+  <object id="173" x="48" y="48" width="48" height="240"/>
+  <object id="174" x="96" y="0" width="240" height="96"/>
+  <object id="175" x="336" y="48" width="144" height="96"/>
+  <object id="176" x="480" y="48" width="432" height="48"/>
+  <object id="177" x="624" y="96" width="96" height="96"/>
+  <object id="178" x="720" y="96" width="144" height="144"/>
+  <object id="179" x="672" y="240" width="144" height="96"/>
+  <object id="180" x="624" y="288" width="96" height="96"/>
+  <object id="181" x="528" y="288" width="48" height="144"/>
+  <object id="182" x="432" y="240" width="96" height="96"/>
+  <object id="183" x="384" y="144" width="96" height="144"/>
+  <object id="184" x="336" y="192" width="48" height="96"/>
+  <object id="185" x="192" y="192" width="96" height="96"/>
+  <object id="186" x="144" y="240" width="48" height="192"/>
+  <object id="187" x="96" y="288" width="48" height="144"/>
+  <object id="188" x="48" y="432" width="48" height="48"/>
+  <object id="189" x="96" y="480" width="48" height="48"/>
+  <object id="193" x="384" y="576" width="240" height="48"/>
+  <object id="194" x="432" y="528" width="240" height="48"/>
+  <object id="195" x="480" y="480" width="192" height="48"/>
+  <object id="196" x="624" y="432" width="48" height="48"/>
+  <object id="197" x="720" y="432" width="48" height="96"/>
+  <object id="198" x="816" y="432" width="96" height="96"/>
+  <object id="199" x="864" y="384" width="48" height="48"/>
+  <object id="200" x="624" y="624" width="96" height="48"/>
+  <object id="201" x="720" y="576" width="144" height="48"/>
+  <object id="202" x="864" y="624" width="48" height="48"/>
+  <object id="203" x="912" y="528" width="48" height="96"/>
+  <object id="204" x="912" y="48" width="48" height="336"/>
+  <object id="205" x="240" y="336" width="96" height="96"/>
+  <object id="206" x="288" y="384" width="144" height="96"/>
+  <object id="207" x="480" y="96" width="96" height="48"/>
+  <object id="208" x="144" y="528" width="48" height="96"/>
+  <object id="209" x="240" y="480" width="48" height="96"/>
+  <object id="210" x="192" y="624" width="192" height="48"/>
+ </objectgroup>
+</map>
